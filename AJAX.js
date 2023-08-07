@@ -1,11 +1,11 @@
-getNews()
+getNews();
 function getNews() {
     $(".posts").text("");
     var keyword = $("#keyword").val();
-    if(keyword == ''){
-        keyword="latest";
+    if (keyword == '') {
+        keyword = "latest";
     }
-    var url = "https://newsapi.org/v2/everything?q=" + keyword + "&apiKey=36672907a37042ae964a0e2f97c6098e";
+    var url = "https://newsapi.org/v2/everything?q="+keyword+"&apiKey=36672907a37042ae964a0e2f97c6098e";
     $("#load").show();
     $.get(url, (response) => {
         $("#load").hide();
@@ -22,13 +22,12 @@ function getNews() {
                 <h5 class="card-title">${response.articles[i].title}</h5>
                 <p class="card-text">${response.articles[i].content}</p>
                 <p class="card-text"><small class="text-muted">${response.articles[i].publishedAt} | ${response.articles[i].author}</small></p>
-                <a href="${response.articles[i].url}" target="_blank" class="btn btn-secondary">Read More</a>
+                <a href="${response.articles[i].url}" target="_blank" class="btn btn-danger">Read More</a>
                 <p></p>
                 </div>
             </div>
             </div>
-        </div>
-            `
+        </div>`;
             $(".posts").append(html);
         }
     });
